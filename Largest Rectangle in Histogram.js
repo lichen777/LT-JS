@@ -8,16 +8,16 @@ var largestRectangleArea = function(heights) {
         return 0;
     }
     
-    var index = [];
+    var stack = [];
     var max = 0;
     for (var i = 0; i <= heights.length; i++) {
         var cur = (i === len) ? -1 : heights[i];
-        while (index.length > 0 && cur <= heights[index[index.length - 1]]) {
-            var h = heights[index.pop()];
-            var w = index.length > 0 ? i - index[index.length - 1] - 1 : i;
+        while (stack.length > 0 && cur <= heights[stack[stack.length - 1]]) {
+            var h = heights[stack.pop()];
+            var w = stack.length > 0 ? i - stack[stack.length - 1] - 1 : i;
             max = Math.max(max, h * w);
         }
-        index.push(i);
+        stack.push(i);
     }
 
     return max;
