@@ -18,14 +18,14 @@ var longestPalindrome = function(s) {
         var len = 0;
         var cur = '';
         if(s.charAt(i) === s.charAt(i + 1)) {
-            left = i;
-            right = i + 1;
-            while (s.charAt(right) === s.charAt(right + 1)) {
+            left = i - 1;
+            right = i + 2;
+            while (s.charAt(right - 1) === s.charAt(right)) {
                 right++;
             }         
         } else {
-            left = i;
-            right = i;
+            left = i - 1;
+            right = i + 1;
         }
         
         while (s.charAt(left) && s.charAt(right) && s.charAt(left) === s.charAt(right)) {
