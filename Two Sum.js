@@ -1,5 +1,5 @@
-/**
-https://leetcode.com/problems/two-sum/description/
+/*
+ *https://leetcode.com/problems/two-sum/description/
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
