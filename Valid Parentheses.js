@@ -3,6 +3,7 @@ https://leetcode.com/problems/valid-parentheses/description/
  * @param {string} s
  * @return {boolean}
  */
+//first submission, a little bit long
 var isValid = function(s) {
     var len = s.length;
     if (s[len-1] === "(" || s[len-1] === "[" || s[len-1] === "{") {
@@ -33,4 +34,23 @@ var isValid = function(s) {
        return false; 
     }
     return true;
+};
+
+//second and better solution:
+var isValid = function(s) {
+    var len = s.length;
+    var stack = [];
+    var check = {"(":")","{":"}","[":"]"};
+
+    for (var i = 0; i < len; i++) {
+        if (check[s[i]]) {
+            stack.push(s[i]);
+        } else {
+            var top = stack.pop();
+            if (check[top] !== s[i]) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
 };
