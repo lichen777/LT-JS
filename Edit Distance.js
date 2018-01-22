@@ -1,8 +1,8 @@
 https://leetcode.com/problems/edit-distance/description/
 /*
 Matrix DP
-State: f[x][y] : means the minimum steps to convert first x characters of Word1 to first y characters of Word2.
-function: study the minimum step from previous state to (x,y): f[x][y] = Math.min(f[x-1][y], f[x][y-1], f[x-1][y-1]) + 1
+State: f[x][y] : means the minimum step to convert first x characters of Word1 to first y characters of Word2.
+function: study the minimum steps from previous state to (x,y): f[x][y] = Math.min(f[x-1][y], f[x][y-1], f[x-1][y-1]) + 1
 initialize: f[x][0] = x; f[0][y] = y
 answer: f[m][n]
 */
