@@ -27,3 +27,21 @@ var wordBreak = function(s, wordDict) {
     }
     return found[s.length] === true;
 };
+
+//another solution
+var wordBreak = function(s, wordDict) {
+    if(wordDict === [] || wordDict === null){
+        return false;
+    }
+    var found = [];
+    found[0] = true;
+    for(var i = 1; i <= s.length; i++){
+        for(var j = 0; j <= i; j++){
+            if(found[j] && wordDict.indexOf(s.substring(j, i)) !== -1){
+                found[i] = true;
+                break;
+            }
+        }
+    }
+    return found[s.length] === true;
+};
