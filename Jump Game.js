@@ -6,16 +6,16 @@ https://leetcode.com/problems/jump-game/description/
  
  //working solution
 var canJump = function(nums) {
-    var i = 0;
-    var j = 0;
     var len = nums.length;
     if (len === 1) {
         return true;
     }
-    for(i = 0; i < len; i++) {
-        if (j >= i) {
-            j = Math.max(j, i + nums[i]);
-            if(j >= len - 1) {
+    var furthest = nums[0];
+
+    for(var i = 1; i < len; i++) {
+        if (furthest >= i) {
+            furthest = Math.max(furthest, i + nums[i]);
+            if(furthest >= len - 1) {
                 return true;
             } 
         }else {
@@ -23,6 +23,18 @@ var canJump = function(nums) {
         }
     }
 };
+
+//another simple solution
+var canJump = function(nums) {
+    var len = nums.length;
+    var furthest = nums[0];
+    for (var i = 1; i < len; i++) {
+        if (furthest >= i && furthest < i + nums[i]) {
+            furthest = i + nums[i];
+        }
+    }
+    return furthest >= (len - 1);
+}
 
 //Using Dynamic Planning, time exceeds limit
 var canJump = function(nums) {
